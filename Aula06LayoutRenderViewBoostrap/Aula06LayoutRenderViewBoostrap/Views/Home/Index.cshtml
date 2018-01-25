@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<h1>Pagina Inicial</h1>
+<div class="row-fluid">
+    <div class="hero-unit">
+        <h1>Meu site: ASP.NET MVC na pratica</h1>
+        <p>
+            esta pagina eh um rascunho 
+        </p>
+
+        <p><a class="btn btn-primary btn-large">Saiba mais</a></p>
+    </div>
+</div>
+
+@section rodape
+    {
+        <p>Veja mais em @Html.ActionLink("Sobre","Index","Sobre")</p>
+    }

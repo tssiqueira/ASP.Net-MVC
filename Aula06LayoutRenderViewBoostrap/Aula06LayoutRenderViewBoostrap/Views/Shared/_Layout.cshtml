@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/bootstrap")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+
+    <div class="container">
+        <!--o container cria uma regiao que cerca todo conteudo da pagina -->
+
+        @RenderPage("~/Views/Shared/_Topo.cshtml") <!-- o caracter: "~" representa o inicio do site-->
+
+        <div class="row">
+
+            @Html.Partial("_MenuLateral")<!--A diferenca entre o 'RenderPage' e o 'HTML.Partial' eh que o utlimo aceita um retorno de uma string MVC dela processada; o render page apenas renderiza a pagina de acordo com o fluxo; o partial nao precisa do endereco inteiro, so o nome da view-->
+
+            <div class="span9">
+                @RenderBody()
+            </div>
+        </div>
+
+        <div class="row">
+            <hr />
+            <footer class="pull-right">
+                <!--verifica se a pagina alvo tem rodape, se tiver, utiliza o definido, senao utiliza o rodape padrao-->
+                @if (IsSectionDefined("rodape"))
+                {
+                    @RenderSection("rodape")
+                }
+                else
+                {
+                    <!--rodape padrao-->
+                    @Html.Partial("_Rodape")
+                }
+            </footer>
+        </div>
+    </div>
+
+</body>
+</html>
